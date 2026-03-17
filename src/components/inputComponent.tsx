@@ -7,10 +7,10 @@ import {
 
 //COMPLETE OS TIPOS QUE ESTÃO FALTANDO NO PROPS
 type Props = {
-  placeholder: ;
+  placeholder: string;
   label: string;
   type: "email-address" | "default";
-  value: ;
+  value: string;
   setValue: (data: string) => void;
 };
 
@@ -27,11 +27,11 @@ export const InputComponent = ({
     <KeyboardAvoidingView>
       <Text style={styles.label}>{}</Text>
       <TextInput
-        style={}
-        placeholder={}
+        style={styles.input}
+        placeholder={placeholder}
         autoCapitalize="none"
-        keyboardType={}
-        value={}
+        keyboardType={type}
+        value={value}
         onChangeText={(data: string) => setValue(data)}
       />
     </KeyboardAvoidingView>

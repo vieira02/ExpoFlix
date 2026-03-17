@@ -7,7 +7,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [isError, setIsError] = useState<boolean>(false);
+  const [isError, setIsError] = useState<string>("");
 
   const router = useRouter();
 
@@ -15,9 +15,26 @@ export default function Login() {
   const handlerLogin = () => {
     //REGRAS PARA IR PARA A PRÓXIMA TELA
     //1 - OS CAMPOS NÃO PODEM FICAR VAZIOS
+    if(email ==="" || password === ""){
+      setIsError("Preencha todos os campos para continuar");
+      return;
+    }
     //2 - O EMAIL DEVE SER UM EMAIL VÁLIDO, OU SEJA, VERIFICAR SE TEM O '@' NO TEXTO
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!regexEmail.test(email)){
+      setIsError("Digite um email válido");
+      return;
+    }
     //3 - A SENHA DEVE TER NO MINIMO 6 CARACTERES
+    if(password.length < 6){
+      setIsError("A senha deve ter no mínimo 6 caracteres");
+      return;
+    }
     //4 - USUÁRIO E SENHA DEVE SER IGUAL A: boanoite.punpun@gmail.com e BoanoitePunpun
+    if(email !== "boanoite.punpun@gmail.com" || password !== "BoanoitePunpun"){
+      setIsError("Email ou senha incorretos");
+      return;
+    }
     //5 - APÓS CONTEMPLAR TODAS AS REGRAS, FAZER A NAVEGAÇÃO PARA A PRÓXIMA TELA
     //CASO ALGUMA REGRA SEJA QUEBRADA, DEVE APARECER UMA MENSAGEM DE ERRO.
     router.replace("/(tabs)/dashboard" as Href);

@@ -13,11 +13,11 @@ export const MovieCard = ({ item }: Props) => {
       <Image src={item.poster} style={styles.image} resizeMode="contain" />
       <View>
         <Text style={styles.titleMovie}>{item.title}</Text>
-        <Text>{item.}</Text>
-        <Text>Lang: {item.}</Text>
+        <Text>{item.description}</Text>
+        <Text>Lang: {item.language}</Text>
         <View style={styles.rank}>
           <Text>Rank:</Text>
-          <Text style={{ color: "yellow" }}>{item.}</Text>
+          <Text style={{ color: "yellow" }}>{item.rank}</Text>
         </View>
       </View>
     </View>

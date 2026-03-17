@@ -1,6 +1,6 @@
 //O ARQUIVO PRECISA SER EXPORTADO PARA QUE OUTROS ARQUIVOS DENTRO DO NOSSO APP CONSIGA ENXERGAR
 //SÓ COLOQUE O PREFIXO export
-const Movies = [
+export const Movies = [
   {
     id: "286e3f76-377f-4503-85f2-18e78f1a9104",
     movie_id: 604578,
